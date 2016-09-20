@@ -18,7 +18,6 @@ class parserCSV(grammar.Grammar):
             node.lines = []
         if len(node.words) != 0:
             group(node)
-        print(node.lines)
         return node
 
 
@@ -29,7 +28,6 @@ def is_string(self, ast, s):
         ast.words = []
     if not hasattr(ast, 'lines'):
         ast.lines = []
-    print("'" + word + "'")
     if word == "\n":
         if hasattr(ast, 'next') and ast.next:
             ast.words.append('')
@@ -51,7 +49,6 @@ def is_string(self, ast, s):
 
 
 def group(ast):
-    print(">>>")
     tab = ast.words.copy()
     ast.words.clear()
     ast.lines.append(tab)
